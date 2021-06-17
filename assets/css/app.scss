@@ -29,3 +29,13 @@
 .alert:empty {
   display: none;
 }
+
+.search-bar {
+  display: inline-flex;
+  width: 100%;
+}
+
+.search-button {
+  margin-left: 8px;
+}
+

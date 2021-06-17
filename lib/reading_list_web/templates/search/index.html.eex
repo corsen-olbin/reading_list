@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>title</th>
+    <th>author</th>
+  </tr>
+<%= for book <- @books[:items] do %>
+  <tr>
+    <td><%= book[:volumeInfo][:title] %></td>
+    <td><%= book[:volumeInfo][:authors] %></td>
+  </tr>
+<% end %>
+</table>

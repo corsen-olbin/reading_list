@@ -18,6 +18,7 @@ defmodule ReadingListWeb.Router do
 
     get "/", PageController, :index
     get "/booktest", BookController, :index
+    get "/search", SearchController, :index
   end
 
   # Other scopes may use custom stacks.

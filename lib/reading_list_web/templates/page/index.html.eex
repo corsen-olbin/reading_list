@@ -1,3 +1,16 @@
+<section>
+
+    <%= form_for @conn, Routes.search_path(@conn, :index), [method: :get], fn f -> %>
+    <div class="search-bar">
+      <%= search_input f, :query %>
+      <div class="search-button">
+        <%= submit "Search" %>
+      </div>
+    </div>
+    <% end %>
+
+</section>
+
 <section class="phx-hero">
   <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
   <p>Peace-of-mind from prototype to production</p>
