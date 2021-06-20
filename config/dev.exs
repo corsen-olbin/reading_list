@@ -5,7 +5,7 @@ config :reading_list, ReadingList.Repo,
   username: "postgres",
   password: "Giraffe19",
   database: "reading_list_dev",
-  hostname: "localhost", # <- change for connecting to Docker db
+  hostname: "localhost", # <- change  to db for connecting to Docker db
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
