@@ -22,11 +22,11 @@ defmodule ReadingListWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", ReadingListWeb do
-    pipe_through :api
+  # scope "/api", ReadingListWeb do
+  #   pipe_through :api
 
-    resources "/books", BookController
-  end
+  #   resources "/books", BookController
+  # end
 
   # Enables LiveDashboard only for development
   #
