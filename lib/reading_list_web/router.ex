@@ -17,14 +17,16 @@ defmodule ReadingListWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
-    get "/booktest", BookController, :index
     get "/search", SearchController, :index
+    get "/mylist", MyListController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", ReadingListWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", ReadingListWeb do
+    pipe_through :api
+
+    resources "/books", BookController
+  end
 
   # Enables LiveDashboard only for development
   #
