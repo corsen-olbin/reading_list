@@ -14,7 +14,7 @@ defmodule ReadingList.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: ReadingList.PubSub},
       # Start the Endpoint (http/https)
-      ReadingListWeb.Endpoint
+      {SiteEncrypt.Phoenix, ReadingListWeb.Endpoint}
       # Start a worker by calling: ReadingList.Worker.start_link(arg)
       # {ReadingList.Worker, arg}
     ]

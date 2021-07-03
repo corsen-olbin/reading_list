@@ -17,6 +17,7 @@ config :reading_list, ReadingList.Repo,
 # with webpack to recompile .js and .css sources.
 config :reading_list, ReadingListWeb.Endpoint,
   http: [port: 4000],
+  https: [port: 4001],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,

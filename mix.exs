@@ -46,7 +46,8 @@ defmodule ReadingList.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:httpoison, "~> 1.8"},
-      {:poison, "~> 4.0"}
+      {:poison, "~> 4.0"},
+      {:site_encrypt, "~> 0.4.2"}
     ]
   end
 
