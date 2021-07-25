@@ -17,6 +17,7 @@ defmodule ReadingListWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/users", UserController
     get "/search", SearchController, :index
     get "/mylist", MyListController, :index
   end
