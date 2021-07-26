@@ -2,25 +2,22 @@ defmodule ReadingList.Accounts do
   @moduledoc """
   The Accounts context.
   """
-
   import Ecto.Query, warn: false
-  import BcryptElixir
+  import Pbkdf2, only: [check_pass: 2]
+
   alias ReadingList.Repo
 
   alias ReadingList.Accounts.{User, Credential}
 
   def authenticate_by_email_password(email, password) do
     query =
-      from u in User,
-      inner_join: c in assoc(u, :credential),
+      from c in Credential,
       where: c.email == ^email
 
-      case Repo.one(query) do
-        %User{} = user -> check_pass(user.credential, ^password)
-      end
+    case Repo.one(query) do
+      result -> check_pass(result, password)
+    end
   end
-
-  defp check_password()
 
   @doc """
   Returns the list of users.
@@ -49,7 +46,12 @@ defmodule ReadingList.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id) do
+    User
+    |> Repo.get!(id)
+    |> Repo.preload(:credential)
+  end
+
 
   @doc """
   Creates a user.

@@ -48,7 +48,7 @@ defmodule ReadingList.MixProject do
       {:httpoison, "~> 1.8"},
       {:poison, "~> 4.0"},
       {:site_encrypt, "~> 0.4.2"},
-      {:comeonin, "~> 2.4"}
+      {:pbkdf2_elixir, "~> 1.4"}
     ]
   end
 
@@ -63,8 +63,7 @@ defmodule ReadingList.MixProject do
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
-      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      buildall: ["cmd /K \"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\vsdevcmd\" -arch=x64", "deps.compile"]
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"]
     ]
   end
 end

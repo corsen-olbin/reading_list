@@ -1,7 +1,8 @@
 defmodule ReadingList.Accounts.Credential do
   use Ecto.Schema
   import Ecto.Changeset
-  import BcryptElixir
+  import Pbkdf2
+
 
   alias ReadingList.Accounts.User
 
@@ -9,7 +10,6 @@ defmodule ReadingList.Accounts.Credential do
     field :email, :string
     field :password, :string, virtual: true
     field :password_hash, :string
-    field :user_id, :id
     belongs_to :user, User
 
     timestamps()
@@ -18,10 +18,11 @@ defmodule ReadingList.Accounts.Credential do
   @doc false
   def changeset(credential, attrs) do
     credential
-    |> put_pass_hash()
-    |> cast(attrs, [:email, :password_hash])
-    |> validate_required([:email, :password_hash])
+    |> cast(attrs, [:email, :password])
+    |> validate_length(:password, min: 6)
+    |> validate_required([:email, :password])
     |> unique_constraint(:email)
+    |> put_pass_hash()
   end
 
   defp put_pass_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
