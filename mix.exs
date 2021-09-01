@@ -48,7 +48,8 @@ defmodule ReadingList.MixProject do
       {:httpoison, "~> 1.8"},
       {:poison, "~> 4.0"},
       {:site_encrypt, "~> 0.4.2"},
-      {:pbkdf2_elixir, "~> 1.4"}
+      {:pbkdf2_elixir, "~> 1.4"},
+      {:guardian, "~> 2.2.0"}
     ]
   end
 
