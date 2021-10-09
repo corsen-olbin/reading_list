@@ -1,3 +1,5 @@
+> **WARNING**: This project isn't being worked on anymore. Use (reading-list-ex)[https://github.com/corsen-olbin/reading-list-ex] instead.
+
 # ReadingList
 
 To start your Phoenix server:
